@@ -10,7 +10,6 @@ import "./Header.scss";
 const Header = ({ term, setTerm, setQuery }) => {
   const submitHandler = (e) => {
     e.preventDefault();
-
     setQuery(term);
   };
 

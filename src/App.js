@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-import axios from "axios";
+import { fetchRecipe, fetchSingleRecipe } from "./apis/recipeApi";
 
 import Details from "./components/Details/Details";
 import Header from "./components/Header/Header";
@@ -8,33 +7,35 @@ import List from "./components/List/List";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("pizza");
   const [term, setTerm] = useState("");
+  const [singleRecipe, setSingleRecipe] = useState(47746);
+  const [recipe, setRecipe] = useState({});
 
   useEffect(() => {
-    const fetchData = async () => {
-      const {
-        data: { recipes },
-      } = await axios.get(
-        `https://forkify-api.herokuapp.com/api/search?q=${query}`
-      );
-
-      setRecipes(recipes);
-
-      console.log(recipes);
-    };
-
-    fetchData();
+    fetchRecipe(query).then((data) => {
+      setRecipes(data);
+      setQuery("");
+    });
   }, [query]);
 
+  useEffect(() => {
+    if (singleRecipe) {
+      fetchSingleRecipe(singleRecipe).then((data) => {
+        setRecipe(data);
+        setSingleRecipe("");
+      });
+    }
+  }, [singleRecipe]);
+
   return (
-    <>
+    <main>
       <Header term={term} setTerm={setTerm} setQuery={setQuery} />
       <div className="container">
-        <List recipes={recipes} />
-        <Details />
+        <List recipes={recipes} setSingleRecipe={setSingleRecipe} />
+        <Details recipe={recipe} />
       </div>
-    </>
+    </main>
   );
 };
 

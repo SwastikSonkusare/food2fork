@@ -17,10 +17,21 @@ html {
 body {
   min-height: 100vh;
   box-sizing: border-box;
+
+  background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main {
+  max-width: 120rem;
+  min-height: 120rem;
+  margin: 4vw auto;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem 0.5rem rgba(97, 85, 81, 0.2);
 }
 
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
