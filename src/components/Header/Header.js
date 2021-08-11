@@ -7,15 +7,23 @@ import logo from "../../assets/logo.09084f39.png";
 
 import "./Header.scss";
 
-const Header = () => {
+const Header = ({ term, setTerm, setQuery }) => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    setQuery(term);
+  };
+
   return (
     <header className="header">
       <img className="header__image" src={logo} alt="food2fork"></img>
-      <form className="header__form">
+      <form className="header__form" onSubmit={submitHandler}>
         <input
           className="header__input"
           type="text"
           placeholder="Search for your favourite recipes"
+          value={term}
+          onChange={(e) => setTerm(e.target.value)}
         ></input>
 
         <div className="header__button">
