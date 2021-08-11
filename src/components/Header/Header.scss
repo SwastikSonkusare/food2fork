@@ -1,0 +1,80 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 3rem;
+  background-color: #fdefef;
+
+  &__image {
+    display: block;
+    height: 4.6rem;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__input {
+    border: none;
+    padding: 1.2rem 5rem 1.2rem 1.5rem;
+    border-radius: 30px;
+    width: 30rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    height: 100%;
+    border: none;
+    border-radius: 30px;
+    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+    transform: translateX(-18%);
+    display: flex;
+    grid-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 4rem;
+
+    & button {
+      color: #fff;
+      border: none;
+      background-color: transparent;
+      font-weight: 600;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+  }
+
+  &__search {
+    color: #fff;
+  }
+
+  &__bookmarks {
+    display: flex;
+    grid-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    & h4 {
+      color: #000;
+    }
+
+    &-icon {
+      color: #eba83a;
+    }
+  }
+}
